@@ -195,7 +195,7 @@ able.on('discover', function(peripheral) {
 
   //able.stopAdvertising();
 
-  
+  /*
     var ancs = new ANCS(peripheral);
 
   ancs.connect(function() {
@@ -215,12 +215,7 @@ able.on('discover', function(peripheral) {
 
          aclStream.on('encryptFail', function() {
       console.log('ancs - services and characteristics discovered');
-    /*  ancs.disconnect(function() {
-        console.log("disconnect");
-        ancs.connect(function() {
-          console.log('ancs - connected');
-        });
-      });*/
+ 
       });
 
     });
@@ -230,7 +225,7 @@ able.on('discover', function(peripheral) {
 
     });
   
-  });
+  });*/
 });
 
 
