@@ -148,7 +148,7 @@ able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
 
-  var uuid = address.split(':').join('').toLowerCase();
+  var uuid = clientAddress.split(':').join('').toLowerCase();
 
   able.connect(uuid);
 
