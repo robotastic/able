@@ -150,7 +150,19 @@ able.on('accept', function(clientAddress) {
 
   target_uuid = clientAddress.split(':').join('').toLowerCase();
 
+ var ad = {
+    localName: undefined,
+    txPowerLevel: undefined,
+    manufacturerData: undefined,
+    serviceData: [],
+    serviceUuids: []
 
+  };
+
+
+  
+
+  noble._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
@@ -171,7 +183,7 @@ able.on('advertisingStart', function(error) {
     console.log('NOBLE on -> connect');
 
   });
-  
+
 able.on('disconnect', function() {
   able.connect(target_uuid);
 });
