@@ -147,14 +147,7 @@ able.on('stateChange', function(state) {
 able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
-  var ad = {
-    localName: undefined,
-    txPowerLevel: undefined,
-    manufacturerData: undefined,
-    serviceData: [],
-    serviceUuids: []
 
-  };
 
 
   able.connect(clientAddress);
