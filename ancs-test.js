@@ -26,7 +26,7 @@ var ANCS = function(peripheral) {
 
   this.uuid = peripheral.uuid;
 
-  //this._peripheral.on('disconnect', this.onDisconnect.bind(this));
+  this._peripheral.on('disconnect', this.onDisconnect.bind(this));
 };
 util.inherits(ANCS, events.EventEmitter);
 
@@ -141,47 +141,23 @@ able.on('stateChange', function(state) {
     able.stopAdvertising();
   }
 });
-able.on('discover', function(peripheral) {
 
-   console.log('BLENO on -> discover: ' + peripheral);
-
-  });
 
 //able._bindings._hci.on('leConnComplete', able._bindings._hci.onLeConnComplete;
 able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
- var ancs = new ANCS(clientAddress);
+  var ad = {
+    localName: undefined,
+    txPowerLevel: undefined,
+    manufacturerData: undefined,
+    serviceData: [],
+    serviceUuids: []
 
-  ancs.connect(function() {
-    console.log('ancs - connected');
+  };
 
-    ancs.on('disconnect', function() {
-      console.log('ancs - disconnected');
-      //ancs.removeAllListeners();
-      //ancs = null;
-    });
 
-   
-    ancs.discoverServicesAndCharacteristics(function() {
-
-        var handle = able._bindings._handles[ancs.uuid];
-         var aclStream = able._bindings._aclStreams[handle];
-
-         aclStream.on('encryptFail', function() {
-      console.log('ancs - services and characteristics discovered');
- 
-      });
-
-    });
-
-    ancs.on('notification', function(notification) {
-      console.log('ancs - notification: ' + notification);
-
-    });
-  
-  });
-  
+  able.connect(clientAddress);
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
@@ -214,7 +190,7 @@ able.on('discover', function(peripheral) {
 
   //able.stopAdvertising();
 
-  /*
+  
     var ancs = new ANCS(peripheral);
 
   ancs.connect(function() {
@@ -244,7 +220,7 @@ able.on('discover', function(peripheral) {
 
     });
   
-  });*/
+  });
 });
 
 
