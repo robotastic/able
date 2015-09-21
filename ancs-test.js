@@ -199,7 +199,7 @@ able.on('discover', function(peripheral) {
 
   
     var ancs = new ANCS(peripheral);
-
+/*
   ancs.connect(function() {
     console.log('ancs - connected');
 
@@ -208,7 +208,7 @@ able.on('discover', function(peripheral) {
       //ancs.removeAllListeners();
       //ancs = null;
     });
-
+*/
    
     ancs.discoverServicesAndCharacteristics(function() {
 
@@ -227,7 +227,7 @@ able.on('discover', function(peripheral) {
 
     });
   
-  });
+  //});
 });
 
 
