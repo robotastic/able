@@ -148,9 +148,9 @@ able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
 
+  var uuid = address.split(':').join('').toLowerCase();
 
-
-  able.connect(clientAddress);
+  able.connect(uuid);
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
