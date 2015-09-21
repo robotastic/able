@@ -151,7 +151,7 @@ able.on('discover', function(peripheral) {
 able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
- var ancs = new ANCS(peripheral);
+ var ancs = new ANCS(clientAddress);
 
   ancs.connect(function() {
     console.log('ancs - connected');
