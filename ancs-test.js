@@ -162,7 +162,7 @@ able.on('accept', function(clientAddress) {
 
   
 
-  noble._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
+  able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
