@@ -144,10 +144,42 @@ able.on('stateChange', function(state) {
 var target_uuid;
 
 //able._bindings._hci.on('leConnComplete', able._bindings._hci.onLeConnComplete;
-able.on('accept', function(clientAddress) {
+able.on('accept', function(peripheral) {
 
-   console.log('on -> accept: ' + clientAddress);
+   console.log('on -> accept: ' );
+  var ancs = new ANCS(peripheral);
+/*
+  ancs.connect(function() {
+    console.log('ancs - connected');
 
+    ancs.on('disconnect', function() {
+      console.log('ancs - disconnected');
+      //ancs.removeAllListeners();
+      //ancs = null;
+    });
+*/
+   
+    ancs.discoverServicesAndCharacteristics(function() {
+
+        var handle = able._bindings._handles[ancs.uuid];
+         var aclStream = able._bindings._aclStreams[handle];
+
+         aclStream.on('encryptFail', function() {
+      console.log('ancs - services and characteristics discovered');
+ 
+      });
+
+    });
+
+    ancs.on('notification', function(notification) {
+      console.log('ancs - notification: ' + notification);
+
+    });
+
+
+
+   
+/*
   target_uuid = clientAddress.split(':').join('').toLowerCase();
 
  var ad = {
@@ -162,7 +194,7 @@ able.on('accept', function(clientAddress) {
 
   
 
-  able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
+  able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);*/
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
