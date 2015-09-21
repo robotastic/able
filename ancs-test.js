@@ -160,14 +160,13 @@ able.on('accept', function(clientAddress) {
 
   };
 
-  //able._bindings._aclStream.pushEncrypt(true);
 
-  //able._bindings._hci._socket.removeAllListeners('data');
   
 
-  able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
+  //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
 });
+
 able.on('advertisingStart', function(error) {
 
   console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
@@ -231,8 +230,5 @@ able.on('discover', function(peripheral) {
 
 
 
-  able.on('connect', function() {
-    console.log('BLENO on -> connect');
-
-  });
+ 
 
