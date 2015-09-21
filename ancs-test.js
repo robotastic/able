@@ -141,16 +141,16 @@ able.on('stateChange', function(state) {
     able.stopAdvertising();
   }
 });
-
+var target_uuid;
 
 //able._bindings._hci.on('leConnComplete', able._bindings._hci.onLeConnComplete;
 able.on('accept', function(clientAddress) {
 
    console.log('on -> accept: ' + clientAddress);
 
-  var uuid = clientAddress.split(':').join('').toLowerCase();
+  target_uuid = clientAddress.split(':').join('').toLowerCase();
 
-  able.connect(uuid);
+
 
   //able._bindings._gap.emit('discover', 'connected', clientAddress, 'random', true, ad, 127);
 
@@ -171,8 +171,10 @@ able.on('advertisingStart', function(error) {
     console.log('NOBLE on -> connect');
 
   });
-
-
+  
+able.on('disconnect', function() {
+  able.connect(target_uuid);
+});
 
 able.on('discover', function(peripheral) {
 
