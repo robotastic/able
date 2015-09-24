@@ -3,7 +3,8 @@ var util = require('util');
 
 var able = require('./index');
 var events = require('events');
-var AncsService = require('./ancs-service.js');
+var AblePrimaryService = able.PrimaryService;
+//var AncsService = require('./ancs-service.js');
 
 
 var SERVICE_UUID                = '7905f431b5ce4e99a40f4b1e122d00d0';
@@ -12,7 +13,7 @@ var NOTIFICATION_SOURCE_UUID    = '9fbf120d630142d98c5825e699a21dbd';
 var CONTROL_POINT_UUID          = '69d1d8f345e149a898219bbdfdaad9d9';
 var DATA_SOURCE_UUID            = '22eac6e924d64bb5be44b36ace7c7bfb';
 
-var primaryService  = AncsService();
+//var primaryService  = AncsService();
 
 able._discoveredPeripheralUUids = [];
 able._allowDuplicates = true;
@@ -207,7 +208,11 @@ able.on('advertisingStart', function(error) {
   console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
 
   //if (!error) {
-    able.setServices([primaryService]);
+    able.setServices(      new AblePrimaryService({
+        uuid: '7905f431b5ce4e99a40f4b1e122d00d0',
+        characteristics: [
+          
+        ]);
 //    able._bindings._hci.connect();
 });
 
