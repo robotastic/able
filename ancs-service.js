@@ -1,6 +1,6 @@
 var util = require('util');
 
-var able = require('./lib/able');
+var able = require('./index');
 var AblePrimaryService = able.PrimaryService;
 
 //var Blink1RGBCharacteristic = require('./blink1-rgb-characteristic');
