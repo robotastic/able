@@ -3,7 +3,7 @@ var util = require('util');
 
 var able = require('./index');
 var events = require('events');
-var AblePrimaryService = ('./lib/primary-service.js'); //able.PrimaryService;
+var AblePrimaryService = require('./lib/primary-service.js'); //able.PrimaryService;
 
 //var AncsService = require('./ancs-service.js');
 
