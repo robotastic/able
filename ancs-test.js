@@ -3,7 +3,7 @@ var util = require('util');
 
 var able = require('./index');
 var events = require('events');
-var AblePrimaryService = able.PrimaryService;
+var AblePrimaryService = ('./lib/primary-service.js'); //able.PrimaryService;
 
 //var AncsService = require('./ancs-service.js');
 
@@ -211,7 +211,7 @@ able.on('advertisingStart', function(error) {
   //if (!error) {
     able.setServices(  [    new AblePrimaryService({
         uuid: '7905f431b5ce4e99a40f4b1e122d00d0',
-        characteristics: [ ]
+        characteristics: []
       })
     ]);
 //    able._bindings._hci.connect();
