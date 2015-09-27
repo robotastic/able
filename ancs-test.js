@@ -222,11 +222,13 @@ able.on('advertisingStart', function(error) {
   console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
 
   //if (!error) {
-    able.setServices(  [    new AblePrimaryService({
+   /* able.setServices(  [    new AblePrimaryService({
         uuid: '7905f431b5ce4e99a40f4b1e122d00d0',
         characteristics: []
       })
-    ]);
+    ]);*/
+
+        able.setServices(  [ ]);
 //    able._bindings._hci.connect();
 });
 
