@@ -7,6 +7,7 @@ var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
       uuid: '2A19',
       properties: ['read'],
+      secure: ['read'],
       descriptors: [
         new Descriptor({
             uuid: '2901',
