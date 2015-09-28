@@ -1,6 +1,6 @@
 var util = require('util'),
   Able = require('./index'),
-  Descriptor = Able.Descriptor,
+  Descriptor = require('./lib/local-characteristic'),
   Characteristic = require('./lib/local-characteristic');//Able.Characteristic;
 
 var BatteryLevelCharacteristic = function() {
