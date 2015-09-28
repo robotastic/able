@@ -225,7 +225,7 @@ able.on('advertisingStart', function(error) {
 
   //if (!error) {
     able.setServices(  [    new AblePrimaryService({
-        uuid: '1805f431b32e4e00a40f4b1e122d00d0'            //'7905f431b5ce4e99a40f4b1e122d00d0',
+        uuid: '1805f431b32e4e00a40f4b1e122d00d0',            //'7905f431b5ce4e99a40f4b1e122d00d0',
         characteristics: [new BatteryLevelCharacteristic()]
       })
     ]);
