@@ -1,9 +1,7 @@
 var util = require('util'),
-  os = require('os'),
-  exec = require('child_process').exec,
   able = require('./index'),
   Descriptor = able.Descriptor,
-  Characteristic = able.Characteristic;
+  Characteristic = able.LocalCharacteristic;
 
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
