@@ -1,7 +1,7 @@
 var util = require('util'),
-  able = require('./index'),
-  Descriptor = able.Descriptor,
-  Characteristic = able.Characteristic;
+  Able = require('./index'),
+  Descriptor = Able.Descriptor,
+  Characteristic = Able.Characteristic;
 
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
