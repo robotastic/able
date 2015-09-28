@@ -4,6 +4,7 @@ var util = require('util');
 var able = require('./index');
 var events = require('events');
 var AblePrimaryService = require('./lib/primary-service.js'); //able.PrimaryService;
+var BatteryLevelCharacteristic = require('./battery-level-characteristic');
 
 //var AncsService = require('./ancs-service.js');
 
@@ -222,13 +223,13 @@ able.on('advertisingStart', function(error) {
   console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
 
   //if (!error) {
-   /* able.setServices(  [    new AblePrimaryService({
+    able.setServices(  [    new AblePrimaryService({
         uuid: '7905f431b5ce4e99a40f4b1e122d00d0',
-        characteristics: []
+        characteristics: [new BatteryLevelCharacteristic()]
       })
-    ]);*/
+    ]);
 
-        able.setServices(  [ ]);
+//        able.setServices(  [ ]);
 //    able._bindings._hci.connect();
 });
 
