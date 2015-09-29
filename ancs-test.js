@@ -195,7 +195,7 @@ able.on('accept', function(peripheral) {
 
     });
 
-}, 5000);
+//}, 5000);
 
 
 /*
