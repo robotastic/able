@@ -242,6 +242,7 @@ able.on('advertisingStart', function(error) {
   });
 
 able.on('disconnect', function() {
+      console.log('Got a disconnect');
   able.connect(target_uuid);
 });
 
