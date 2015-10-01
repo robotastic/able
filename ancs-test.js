@@ -176,8 +176,9 @@ able.on('accept', function(peripheral) {
       //ancs = null;
     });
 */
-    //able.findHandlesForUuid(peripheral.id, SERVICE_UUID);
-    //setTimeout(function() {
+
+    setTimeout(function() {
+          able.findHandlesForUuid(peripheral.id, SERVICE_UUID);
    ancs.discoverServicesAndCharacteristics(function() {
 
         var handle = able._bindings._handles[ancs.uuid];
@@ -195,7 +196,7 @@ able.on('accept', function(peripheral) {
 
     });
 
-//}, 5000);
+}, 5000);
 
 
 /*
