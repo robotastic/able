@@ -161,12 +161,12 @@ able.on('stateChange', function(state) {
   }
 });
 var target_uuid;
-
+  var ancs
 //able._bindings._hci.on('leConnComplete', able._bindings._hci.onLeConnComplete;
 able.on('accept', function(peripheral) {
 
    console.log('on -> accept: ' );
-  var ancs = new ANCS(peripheral);
+  ancs = new ANCS(peripheral);
 /*
   ancs.connect(function() {
     console.log('ancs - connected');
@@ -180,17 +180,7 @@ able.on('accept', function(peripheral) {
 
 //    setTimeout(function() {
     //able.findHandlesForUuid(peripheral.id, SERVICE_UUID);
-    ancs.discoverServicesAndCharacteristics(function() {
 
-        var handle = able._bindings._handles[ancs.uuid];
-         var aclStream = able._bindings._aclStreams[handle];
-
-         aclStream.on('encryptFail', function() {
-      console.log('ancs - services and characteristics discovered');
- 
-      });
-
-    });
 
     ancs.on('notification', function(notification) {
       console.log('ancs - notification: ' + notification);
@@ -236,7 +226,19 @@ able.on('advertisingStart', function(error) {
 //    able._bindings._hci.connect();
 });
 
+able.on('mtuChange', function() {
+    ancs.discoverServicesAndCharacteristics(function() {
 
+        var handle = able._bindings._handles[ancs.uuid];
+         var aclStream = able._bindings._aclStreams[handle];
+
+         aclStream.on('encryptFail', function() {
+      console.log('ancs - services and characteristics discovered');
+ 
+      });
+
+    });
+});
 
   able.on('connect', function() {
     console.log('NOBLE on -> connect');
