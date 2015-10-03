@@ -50,7 +50,7 @@ ANCS.prototype.disconnect = function(callback) {
 
 ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
   console.log('CHARECTERISTIC');
-  this._peripheral.discoverSomeServicesAndCharacteristics([SERVICE_UUID], [], function(error, services, characteristics) {
+  this._peripheral.findServiceAndCharacteristics([SERVICE_UUID], [], function(error, services, characteristics) {
     for (var i in characteristics) {
       console.log("CHARECTERISTIC: "+characteristics[i]);
       if (characteristics[i].uuid == NOTIFICATION_SOURCE_UUID) {
@@ -179,8 +179,8 @@ able.on('accept', function(peripheral) {
 */
 
 //    setTimeout(function() {
-          //able.findHandlesForUuid(peripheral.id, SERVICE_UUID);
-   ancs.discoverServicesAndCharacteristics(function() {
+    //able.findHandlesForUuid(peripheral.id, SERVICE_UUID);
+    ancs.discoverServicesAndCharacteristics(function() {
 
         var handle = able._bindings._handles[ancs.uuid];
          var aclStream = able._bindings._aclStreams[handle];
