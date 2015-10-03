@@ -56,17 +56,17 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
       if (characteristics[i].uuid == NOTIFICATION_SOURCE_UUID) {
         console.log("NOTIFICATION_SOURCE_UUID");
       }
-      if (characteristics[i].uuid == DATA_SOURCE_UUID) {
+     /* if (characteristics[i].uuid == DATA_SOURCE_UUID) {
         console.log("DATA_SOURCE_UUID");
-      }
+      }*/
       this._characteristics[characteristics[i].uuid] = characteristics[i];
     }
 
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
-    this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
+    //this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
     this._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-    this._characteristics[DATA_SOURCE_UUID].notify(true);
+    //this._characteristics[DATA_SOURCE_UUID].notify(true);
 
     callback();
   }.bind(this));
