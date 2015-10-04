@@ -80,7 +80,7 @@ ANCS.prototype.onNotification = function(data) {
 
   //this._notifications[notification.uid] = notification;
   console.log('NOTIFICATION');
-  this.emit('notification', notification);
+  this.emit('notification', data);
 };
 
 ANCS.prototype.onData = function(data) {
@@ -184,7 +184,7 @@ able.on('accept', function(peripheral) {
 
 
     ancs.on('notification', function(notification) {
-      console.log('ancs - notification: ' + notification);
+      console.log('ancs - notification: ' + notification.toString(16));
 
     });
 
