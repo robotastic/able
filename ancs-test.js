@@ -66,7 +66,7 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
     //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-    //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+    ancs._characteristics[DATA_SOURCE_UUID].notify(true);
     
     callback();
   }.bind(this));
