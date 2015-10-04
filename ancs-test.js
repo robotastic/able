@@ -63,10 +63,10 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     }
 
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
-    //this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
+    this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
     this._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-    //this._characteristics[DATA_SOURCE_UUID].notify(true);
+    this._characteristics[DATA_SOURCE_UUID].notify(true);
 
     callback();
   }.bind(this));
@@ -233,17 +233,24 @@ able.on('mtuChange', function() {
          var aclStream = able._bindings._aclStreams[handle];
 
          aclStream.on('encryptFail', function() {
-      console.log('ancs - services and characteristics discovered');
+      console.log('ancs - services and characteristics failed');
+          ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+          ancs._characteristics[DATA_SOURCE_UUID].notify(true);
  
       });
 
     });
 });
 
-  able.on('connect', function() {
+able.on('encryptFail', function() {
+  console.log("able encryptFail");
+
+});
+
+able.on('connect', function() {
     console.log('NOBLE on -> connect');
 
-  });
+});
 
 able.on('disconnect', function() {
       console.log('Got a disconnect');
