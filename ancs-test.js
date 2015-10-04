@@ -50,7 +50,7 @@ ANCS.prototype.disconnect = function(callback) {
 
 ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
   console.log('CHARECTERISTIC');
-  this._peripheral.findServiceAndCharacteristics(SERVICE_UUID, [NOTIFICATION_SOURCE_UUID], function(error, services, characteristics) {
+  this._peripheral.findServiceAndCharacteristics(SERVICE_UUID, [], function(error, services, characteristics) {
     for (var i in characteristics) {
       console.log("CHARECTERISTIC: "+characteristics[i]);
       if (characteristics[i].uuid == NOTIFICATION_SOURCE_UUID) {
