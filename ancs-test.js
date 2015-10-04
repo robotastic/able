@@ -85,7 +85,7 @@ ANCS.prototype.onNotification = function(data) {
 
 ANCS.prototype.onData = function(data) {
    console.log('data ' + data.toString('hex'));
-
+/*
   var commandId = data.readUInt8(0);
 
   if (commandId === 0x00) {
@@ -100,7 +100,7 @@ ANCS.prototype.onData = function(data) {
       console.log('NOTIFICATION');
       //this._notifications[this._lastUid].emit('data',data);
     }
-  }
+  }*/
 };
 
 ANCS.prototype.requestNotificationAttribute = function(uid, attributeId, maxLength) {
