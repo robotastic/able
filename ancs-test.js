@@ -184,7 +184,7 @@ able.on('accept', function(peripheral) {
 
 
     ancs.on('notification', function(notification) {
-      console.log('ancs - notification: ' + notification.toString(16));
+      console.log('ancs - notification: ' + notification);
 
     });
 
