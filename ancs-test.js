@@ -233,9 +233,11 @@ able.on('mtuChange', function() {
          var aclStream = able._bindings._aclStreams[handle];
 
          aclStream.on('encryptFail', function() {
+
       console.log('ancs - services and characteristics failed');
-          ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-          ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+      ancs.discoverServicesAndCharacteristics(function() {});
+          //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+          //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
  
       });
 
