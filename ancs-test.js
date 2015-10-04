@@ -65,9 +65,9 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
     this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
-    ancs._characteristics[NOTIFICATION_SOURCE_UUID].read(); //notify(true);
-    ancs._characteristics[DATA_SOURCE_UUID].read(); //notify(true);
-    ancs._characteristics[CONTROL_POINT_UUID].read();
+    ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+    ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+    ancs._characteristics[CONTROL_POINT_UUID].write('test',true);
 
     callback();
   }.bind(this));
