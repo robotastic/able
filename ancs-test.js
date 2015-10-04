@@ -65,6 +65,9 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
     this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
+    ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+    ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+
     callback();
   }.bind(this));
 };
@@ -229,17 +232,13 @@ able.on('mtuChange', function() {
         var handle = able._bindings._handles[ancs.uuid];
          var aclStream = able._bindings._aclStreams[handle];
 
-        setTimeout(function() {
-            ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-            ancs._characteristics[DATA_SOURCE_UUID].notify(true);
-        },10000);
 
          aclStream.on('encryptFail', function() {
 
       console.log('ancs - services and characteristics failed');
-      ancs.discoverServicesAndCharacteristics(function() {});
-          //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-          //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+      //ancs.discoverServicesAndCharacteristics(function() {});
+          ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+          ancs._characteristics[DATA_SOURCE_UUID].notify(true);
  
       });
 
