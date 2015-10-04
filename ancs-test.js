@@ -228,7 +228,7 @@ able.on('advertisingStart', function(error) {
 });
 
 able.on('mtuChange', function() {
-    ancs.discoverServicesAndCharacteristics(function() {
+/*    ancs.discoverServicesAndCharacteristics(function() {
 
         var handle = able._bindings._handles[ancs.uuid];
          var aclStream = able._bindings._aclStreams[handle];
@@ -245,7 +245,7 @@ able.on('mtuChange', function() {
  
       });
 
-    });
+    });*/
 });
 
 able.on('encryptFail', function() {
