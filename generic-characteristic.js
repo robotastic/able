@@ -7,6 +7,7 @@ var GenericCharacteristic = function() {
   GenericCharacteristic.super_.call(this, {
       uuid: '2803',
       properties: ['read'],
+      secure: ['read'],
       descriptors: [
         new Descriptor({
             uuid: '2901',
