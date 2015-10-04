@@ -238,8 +238,8 @@ able.on('mtuChange', function() {
       console.log('ancs - services and characteristics failed');
       //ancs.discoverServicesAndCharacteristics(function() {});
          setTimeout(function() {
-          ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-          ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+          //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+          //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
         }, 10000);
  
       });
