@@ -65,8 +65,9 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
     this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
-    ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-    ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+    ancs._characteristics[NOTIFICATION_SOURCE_UUID].read(); //notify(true);
+    ancs._characteristics[DATA_SOURCE_UUID].read(); //notify(true);
+    ancs._characteristics[CONTROL_POINT_UUID].read();
 
     callback();
   }.bind(this));
@@ -237,8 +238,10 @@ able.on('mtuChange', function() {
 
       console.log('ancs - services and characteristics failed');
       //ancs.discoverServicesAndCharacteristics(function() {});
+         setTimeout(function() {
           ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
           ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+        }, 10000);
  
       });
 
