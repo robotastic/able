@@ -90,7 +90,7 @@ ANCS.prototype.onNotification = function(data) {
 };
 
 ANCS.prototype.onData = function(data) {
-   console.log('data ' + data.toString('hex'));
+   //console.log('data ' + data.toString('hex'));
 
   var commandId = data.readUInt8(0);
 
@@ -99,11 +99,11 @@ ANCS.prototype.onData = function(data) {
     var notificationData = data.slice(5);
 
     this._lastUid = uid;
-    console.log('NOTIFICATION');
+    //console.log('NOTIFICATION');
     this._notifications[uid].emit('data', notificationData);
   } else {
     if (this._lastUid) {
-      console.log('NOTIFICATION');
+      //console.log('NOTIFICATION');
       this._notifications[this._lastUid].emit('data',data);
     }
   }
@@ -112,7 +112,7 @@ ANCS.prototype.onData = function(data) {
 ANCS.prototype.requestNotificationAttribute = function(uid, attributeId, maxLength) {
   var buffer = new Buffer(maxLength ? 8 : 6);
 
-  console.log('REQUEST NOTIFICATION');
+  //console.log('REQUEST NOTIFICATION');
 
   buffer.writeUInt8(0x00, 0);
   buffer.writeUInt32LE(uid, 1);
