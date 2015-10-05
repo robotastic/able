@@ -187,12 +187,18 @@ able.on('accept', function(peripheral) {
 
     });
 
+ancs.on('disconnect', function() {
+      console.log('ancs - disconnected');
+       able.connect(target_uuid);
+      //ancs.removeAllListeners();
+      //ancs = null;
+});
 //}, 5000);
 
 
-/*
-  target_uuid = clientAddress.split(':').join('').toLowerCase();
 
+  target_uuid = peripheral.id;// clientAddress.split(':').join('').toLowerCase();
+/*
  var ad = {
     localName: undefined,
     txPowerLevel: undefined,
