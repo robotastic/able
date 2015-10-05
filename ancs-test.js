@@ -252,6 +252,12 @@ able.on('mtuChange', function() {
 
     });
 });
+able.on('encryptChange', function() {
+  console.log("able encryptChange!!!");
+  ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+  ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+});
+
 
 able.on('encryptFail', function() {
   console.log("able encryptFail");
