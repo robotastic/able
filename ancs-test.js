@@ -83,7 +83,9 @@ ANCS.prototype.onNotification = function(data) {
   notification.readTitle(function(title){
     console.log("title: " + title);
   })
-
+  notification.readMessage(function(message){
+    console.log("Message: " + message);
+  })
   this.emit('notification', data);
 };
 
