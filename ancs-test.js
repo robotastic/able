@@ -80,6 +80,12 @@ ANCS.prototype.onNotification = function(data) {
 
   this._notifications[notification.uid] = notification;
   console.log('NOTIFICATION: ' + notification);
+  notification.readTitle(function(title){
+    debug("title: " + title);
+  })
+  notification.readMessage(function(message){
+    debug("Message: " + message);
+  })
   this.emit('notification', data);
 };
 
