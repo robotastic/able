@@ -83,9 +83,7 @@ ANCS.prototype.onNotification = function(data) {
   notification.readTitle(function(title){
     debug("title: " + title);
   })
-  notification.readMessage(function(message){
-    debug("Message: " + message);
-  })
+
   this.emit('notification', data);
 };
 
@@ -261,8 +259,9 @@ able.on('mtuChange', function() {
 });
 able.on('encryptChange', function() {
   console.log("able encryptChange!!!");
-  ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
   ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+  ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+
 });
 
 
