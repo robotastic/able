@@ -6,6 +6,7 @@ var events = require('events');
 var AblePrimaryService = require('./lib/primary-service.js'); //able.PrimaryService;
 var BatteryLevelCharacteristic = require('./battery-level-characteristic');
 var GenericCharacteristic = require('./generic-characteristic');
+var Notification = require('./ancs-notification');
 
 //var AncsService = require('./ancs-service.js');
 
@@ -75,16 +76,16 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
 ANCS.prototype.onNotification = function(data) {
   console.log('notification ' + data.toString('hex'));
 
-  //var notification = new Notification(this, data);
+  var notification = new Notification(this, data);
 
-  //this._notifications[notification.uid] = notification;
+  this._notifications[notification.uid] = notification;
   console.log('NOTIFICATION');
   this.emit('notification', data);
 };
 
 ANCS.prototype.onData = function(data) {
    console.log('data ' + data.toString('hex'));
-/*
+
   var commandId = data.readUInt8(0);
 
   if (commandId === 0x00) {
@@ -93,13 +94,13 @@ ANCS.prototype.onData = function(data) {
 
     this._lastUid = uid;
     console.log('NOTIFICATION');
-    //this._notifications[uid].emit('data', notificationData);
+    this._notifications[uid].emit('data', notificationData);
   } else {
     if (this._lastUid) {
       console.log('NOTIFICATION');
-      //this._notifications[this._lastUid].emit('data',data);
+      this._notifications[this._lastUid].emit('data',data);
     }
-  }*/
+  }
 };
 
 ANCS.prototype.requestNotificationAttribute = function(uid, attributeId, maxLength) {
