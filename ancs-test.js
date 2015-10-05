@@ -119,7 +119,7 @@ ANCS.prototype.requestNotificationAttribute = function(uid, attributeId, maxLeng
     buffer.writeUInt16LE(maxLength, 6);
   }
 
-  this._characteristics[CONTROL_POINT_UUID].write(buffer, true);
+  this._characteristics[CONTROL_POINT_UUID].write(buffer, false);
 };
 
 
