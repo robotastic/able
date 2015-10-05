@@ -79,7 +79,7 @@ ANCS.prototype.onNotification = function(data) {
   var notification = new Notification(this, data);
 
   this._notifications[notification.uid] = notification;
-  console.log('NOTIFICATION');
+  console.log('NOTIFICATION: ' + notification);
   this.emit('notification', data);
 };
 
