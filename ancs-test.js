@@ -66,8 +66,8 @@ ANCS.prototype.discoverServicesAndCharacteristics = function(callback) {
     this._characteristics[NOTIFICATION_SOURCE_UUID].on('read', this.onNotification.bind(this));
     this._characteristics[DATA_SOURCE_UUID].on('read', this.onData.bind(this));
 
-    //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
-    //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+    ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+    ancs._characteristics[DATA_SOURCE_UUID].notify(true);
     
     callback();
   }.bind(this));
@@ -240,7 +240,11 @@ able.on('advertisingStart', function(error) {
 });
 
 able.on('mtuChange', function() {
-    ancs.discoverServicesAndCharacteristics(function() {
+
+});
+able.on('encryptChange', function() {
+  console.log("able encryptChange!!!");
+      ancs.discoverServicesAndCharacteristics(function() {
 
         var handle = able._bindings._handles[ancs.uuid];
          var aclStream = able._bindings._aclStreams[handle];
@@ -258,11 +262,8 @@ able.on('mtuChange', function() {
       });
 
     });
-});
-able.on('encryptChange', function() {
-  console.log("able encryptChange!!!");
-  ancs._characteristics[DATA_SOURCE_UUID].notify(true);
-  ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
+  //ancs._characteristics[DATA_SOURCE_UUID].notify(true);
+  //ancs._characteristics[NOTIFICATION_SOURCE_UUID].notify(true);
 
 });
 
