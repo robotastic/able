@@ -17,10 +17,6 @@ var DATA_SOURCE_UUID            = '22eac6e924d64bb5be44b36ace7c7bfb';
 
 var able = new Able();
 
-able._discoveredPeripheralUUids = [];
-able._allowDuplicates = true;
-able._bindings._scanServiceUuids = [];
-
 var ANCS = function(peripheral) {
   this._peripheral = peripheral;
   this._characteristics = {};
