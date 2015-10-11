@@ -177,13 +177,13 @@ able.on('advertisingStart', function(error) {
 
   console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
 
-  if (!error) {
+
     able.setServices(  [    new AblePrimaryService({
         uuid: '13333333333333333333333333333337',            //'7905f431b5ce4e99a40f4b1e122d00d0',
         characteristics: [new GenericCharacteristic()]
       })
     ]);
-  }
+  
 });
 
 able.on('mtuChange', function() {
